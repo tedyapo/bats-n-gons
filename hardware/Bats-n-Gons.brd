@@ -112,13 +112,21 @@
 <layer number="131" name="tAdjust" color="7" fill="1" visible="no" active="no"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="no" active="no"/>
 <layer number="133" name="bottom_silk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="134" name="silk_top" color="7" fill="1" visible="no" active="no"/>
+<layer number="135" name="silk_bottom" color="7" fill="1" visible="no" active="no"/>
+<layer number="136" name="silktop" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="137" name="silkbottom" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="145" name="DrillLegend_01-16" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="146" name="DrillLegend_01-20" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="150" name="Notes" color="7" fill="1" visible="no" active="no"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="no" active="yes"/>
 <layer number="152" name="_bDocu" color="7" fill="1" visible="no" active="no"/>
 <layer number="153" name="FabDoc1" color="6" fill="1" visible="no" active="no"/>
 <layer number="154" name="FabDoc2" color="2" fill="1" visible="no" active="no"/>
 <layer number="155" name="FabDoc3" color="7" fill="15" visible="no" active="no"/>
+<layer number="166" name="AntennaArea" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="168" name="4mmHeightArea" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="199" name="Contour" color="7" fill="1" visible="no" active="no"/>
 <layer number="200" name="200bmp" color="1" fill="10" visible="no" active="no"/>
 <layer number="201" name="201bmp" color="7" fill="1" visible="no" active="yes"/>
@@ -501,6 +509,29 @@ shrink quad flat pack, square</description>
 </package>
 </packages>
 </library>
+<library name="SophiEaglev9">
+<packages>
+<package name="USB_MICRO_LEGS_2">
+<text x="-4.233065625" y="0.690221875" size="0.6096" layer="25" font="vector" ratio="20" rot="R90">&gt;NAME</text>
+<text x="12.579" y="-0.35" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="top-left">&gt;VALUE</text>
+<smd name="D+" x="5.08" y="3.745" dx="0.4" dy="1.45" layer="1" rot="R180"/>
+<smd name="D-" x="4.43" y="3.745" dx="0.4" dy="1.45" layer="1" rot="R180"/>
+<smd name="VBUS" x="3.78" y="3.745" dx="0.4" dy="1.45" layer="1" rot="R180"/>
+<smd name="ID" x="5.73" y="3.745" dx="0.4" dy="1.45" layer="1" rot="R180"/>
+<smd name="GND" x="6.38" y="3.745" dx="0.4" dy="1.45" layer="1" rot="R180"/>
+<wire x1="1.18" y1="3.87" x2="9.03" y2="3.87" width="0.127" layer="49"/>
+<pad name="P$1" x="2.54" y="3.76" drill="0.6"/>
+<pad name="P$2" x="7.62" y="3.76" drill="0.6"/>
+<wire x1="1.18" y1="3.86" x2="1.18" y2="-0.39" width="0.127" layer="21"/>
+<hole x="8.98" y="1.06" drill="1.27"/>
+<wire x1="1.18" y1="-0.39" x2="9.03" y2="-0.39" width="0.127" layer="21"/>
+<smd name="P$3" x="3.98" y="1.06" dx="1.55" dy="1.5" layer="1"/>
+<smd name="P$4" x="6.18" y="1.06" dx="1.55" dy="1.5" layer="1"/>
+<hole x="1.18" y="1.06" drill="1.27"/>
+<wire x1="9.03" y1="3.81" x2="9.03" y2="-0.39" width="0.127" layer="21"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -716,12 +747,18 @@ design rules under a new name.</description>
 <attribute name="NAME" x="54.85" y="61.3" size="1.016" layer="25" font="vector"/>
 <attribute name="VALUE" x="54.55" y="64.7" size="1.016" layer="27" font="vector"/>
 </element>
+<element name="U$2" library="SophiEaglev9" package="USB_MICRO_LEGS_2" value="" x="6.35" y="-5.08" smashed="yes">
+<attribute name="NAME" x="2.116934375" y="-4.389778125" size="0.6096" layer="25" font="vector" ratio="20" rot="R90"/>
+<attribute name="VALUE" x="18.929" y="-5.43" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="top-left"/>
+</element>
 </elements>
 <signals>
 <signal name="GND" class="2">
 <contactref element="C5" pad="2"/>
 <contactref element="C7" pad="2"/>
-<wire x1="47.84" y1="59.69" x2="47.84" y2="50.8" width="0" layer="19" extent="1-1"/>
+<contactref element="U$2" pad="GND"/>
+<wire x1="47.84" y1="50.8" x2="47.84" y2="59.69" width="0" layer="19" extent="1-1"/>
+<wire x1="12.73" y1="-1.335" x2="47.84" y2="50.8" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="AREF" class="4">
 <contactref element="U$1" pad="10"/>
@@ -1009,6 +1046,9 @@ design rules under a new name.</description>
 </signal>
 <signal name="SD_CD">
 <contactref element="U$1" pad="122"/>
+</signal>
+<signal name="VBUS">
+<contactref element="U$2" pad="VBUS"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

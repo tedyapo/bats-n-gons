@@ -112,13 +112,21 @@
 <layer number="131" name="tAdjust" color="7" fill="1" visible="no" active="no"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="no" active="no"/>
 <layer number="133" name="bottom_silk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="134" name="silk_top" color="7" fill="1" visible="no" active="no"/>
+<layer number="135" name="silk_bottom" color="7" fill="1" visible="no" active="no"/>
+<layer number="136" name="silktop" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="137" name="silkbottom" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="145" name="DrillLegend_01-16" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="146" name="DrillLegend_01-20" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="150" name="Notes" color="7" fill="1" visible="no" active="no"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="no" active="yes"/>
 <layer number="152" name="_bDocu" color="7" fill="1" visible="no" active="no"/>
 <layer number="153" name="FabDoc1" color="6" fill="1" visible="no" active="no"/>
 <layer number="154" name="FabDoc2" color="2" fill="1" visible="no" active="no"/>
 <layer number="155" name="FabDoc3" color="7" fill="15" visible="no" active="no"/>
+<layer number="166" name="AntennaArea" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="168" name="4mmHeightArea" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="199" name="Contour" color="7" fill="1" visible="no" active="no"/>
 <layer number="200" name="200bmp" color="1" fill="10" visible="no" active="no"/>
 <layer number="201" name="201bmp" color="7" fill="1" visible="no" active="yes"/>
@@ -1303,6 +1311,68 @@ shrink quad flat pack, square</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="SophiEaglev9">
+<packages>
+<package name="USB_MICRO_LEGS_2">
+<text x="-4.233065625" y="0.690221875" size="0.6096" layer="25" font="vector" ratio="20" rot="R90">&gt;NAME</text>
+<text x="12.579" y="-0.35" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="top-left">&gt;VALUE</text>
+<smd name="D+" x="5.08" y="3.745" dx="0.4" dy="1.45" layer="1" rot="R180"/>
+<smd name="D-" x="4.43" y="3.745" dx="0.4" dy="1.45" layer="1" rot="R180"/>
+<smd name="VBUS" x="3.78" y="3.745" dx="0.4" dy="1.45" layer="1" rot="R180"/>
+<smd name="ID" x="5.73" y="3.745" dx="0.4" dy="1.45" layer="1" rot="R180"/>
+<smd name="GND" x="6.38" y="3.745" dx="0.4" dy="1.45" layer="1" rot="R180"/>
+<wire x1="1.18" y1="3.87" x2="9.03" y2="3.87" width="0.127" layer="49"/>
+<pad name="P$1" x="2.54" y="3.76" drill="0.6"/>
+<pad name="P$2" x="7.62" y="3.76" drill="0.6"/>
+<wire x1="1.18" y1="3.86" x2="1.18" y2="-0.39" width="0.127" layer="21"/>
+<hole x="8.98" y="1.06" drill="1.27"/>
+<wire x1="1.18" y1="-0.39" x2="9.03" y2="-0.39" width="0.127" layer="21"/>
+<smd name="P$3" x="3.98" y="1.06" dx="1.55" dy="1.5" layer="1"/>
+<smd name="P$4" x="6.18" y="1.06" dx="1.55" dy="1.5" layer="1"/>
+<hole x="1.18" y="1.06" drill="1.27"/>
+<wire x1="9.03" y1="3.81" x2="9.03" y2="-0.39" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="USB_MICRO">
+<wire x1="7.62" y1="7.62" x2="-2.54" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="7.62" x2="-2.54" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-7.62" x2="7.62" y2="-7.62" width="0.254" layer="94"/>
+<text x="2.794" y="-3.302" size="2.54" layer="94" rot="R90">USB</text>
+<pin name="D+" x="-5.08" y="0" visible="pad" length="short"/>
+<pin name="D-" x="-5.08" y="2.54" visible="pad" length="short"/>
+<pin name="VBUS" x="-5.08" y="5.08" visible="pin" length="short" direction="pwr"/>
+<pin name="GND" x="-5.08" y="-5.08" visible="pin" length="short" direction="pwr"/>
+<pin name="ID" x="-5.08" y="-2.54" visible="pad" length="short"/>
+<pin name="SHIELD" x="10.16" y="0" visible="off" length="short" rot="R180"/>
+<text x="-2.54" y="-7.874" size="1.778" layer="96" font="vector" align="top-left">&gt;VALUE</text>
+<wire x1="7.62" y1="7.62" x2="7.62" y2="-7.62" width="0.254" layer="94"/>
+<text x="-2.54" y="7.62" size="1.778" layer="95" font="vector">&gt;NAME</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="USB_MICRO_LEGS" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="USB_MICRO" x="-10.16" y="2.54"/>
+</gates>
+<devices>
+<device name="" package="USB_MICRO_LEGS_2">
+<connects>
+<connect gate="G$1" pin="D+" pad="D+"/>
+<connect gate="G$1" pin="D-" pad="D-"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="ID" pad="ID"/>
+<connect gate="G$1" pin="SHIELD" pad="P$4"/>
+<connect gate="G$1" pin="VBUS" pad="VBUS"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1327,6 +1397,7 @@ shrink quad flat pack, square</description>
 <part name="U$1" library="microbuilder" deviceset="SAMD51PXXA" device=""/>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="FRAME_B_L" device=""/>
 <part name="FRAME2" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="FRAME_B_L" device=""/>
+<part name="U$2" library="SophiEaglev9" deviceset="USB_MICRO_LEGS" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1361,6 +1432,10 @@ shrink quad flat pack, square</description>
 <attribute name="LAST_DATE_TIME" x="337.82" y="1.27" size="2.54" layer="94"/>
 <attribute name="SHEET" x="411.48" y="1.27" size="2.54" layer="94"/>
 <attribute name="DRAWING_NAME" x="342.9" y="19.05" size="2.54" layer="94"/>
+</instance>
+<instance part="U$2" gate="G$1" x="218.44" y="228.6" smashed="yes">
+<attribute name="VALUE" x="215.9" y="220.726" size="1.778" layer="96" font="vector" align="top-left"/>
+<attribute name="NAME" x="215.9" y="236.22" size="1.778" layer="95" font="vector"/>
 </instance>
 </instances>
 <busses>
